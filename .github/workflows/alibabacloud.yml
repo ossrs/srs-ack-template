@@ -26,5 +26,8 @@ jobs:
       # Deploy SRS image
       - name: Deploy SRS image
         run: |-
-          kubectl apply -f srs.yaml
-          kubectl describe deploy/srs-service
+          kubectl get deploy
+          #kubectl apply -f srs.yaml
+          #kubectl get svc/srs-service
+          #EIP=$(kubectl get svc/srs-service |grep srs-service |awk '{print $4}')
+          #echo "http://${EIP}:8080"
