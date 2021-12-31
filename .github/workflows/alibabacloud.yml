@@ -21,7 +21,7 @@ jobs:
         with:
           access-key-id: "${{ secrets.ACCESS_KEY_ID }}"
           access-key-secret: "${{ secrets.ACCESS_KEY_SECRET }}"
-          cluster-id: "${{ env.ACK_CLUSTER_ID }}"
+          cluster-id: "${{ secrets.ACK_CLUSTER_ID }}"
 
       # Deploy the SRS image to the ACK cluster
       - name: Deploy SRS image
