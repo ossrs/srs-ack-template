@@ -34,4 +34,5 @@ jobs:
         run: |-
           ls -lh srs.yaml
           #kubectl apply -f srs.yaml
+          cat ${{ env.KUBCONFIG }}
           kubectl describe deploy/web-deploy
