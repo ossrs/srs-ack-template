@@ -27,4 +27,4 @@ jobs:
       - name: Deploy SRS image
         run: |-
           kubectl apply -f srs.yaml
-          kubectl describe deploy/srs-deployment
+          kubectl describe deploy/srs-service
