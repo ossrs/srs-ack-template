@@ -21,8 +21,12 @@ jobs:
       # Cleanup project
       - name: Cleanup
         run: |
+          # Replace repository name and links.
           NAME="${GITHUB_REPOSITORY##*/}"
           sed -i "s/srs-ack-template/$NAME/g" README.md
+
+          # Cleanup
+          rm -f .github/workflows/template-cleanup.yml
 
       # Commit modified files
       - name: Commit files
