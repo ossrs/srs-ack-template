@@ -29,7 +29,9 @@ jobs:
           KUBECONFIG=$RUNNER_TEMP/kubeconfig_$(date +%s)
           echo "${{ secrets.KUBCONFIG }}" > $KUBECONFIG
           echo "KUBECONFIG=$KUBECONFIG" >> $GITHUB_ENV
+
       - name: Deploy SRS image
         run: |-
           ls -lh srs.yaml
-          kubectl apply -f srs.yaml
+          #kubectl apply -f srs.yaml
+          kubectl describe deploy/web-deploy
