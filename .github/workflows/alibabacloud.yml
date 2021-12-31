@@ -31,4 +31,5 @@ jobs:
           echo "KUBECONFIG=$KUBECONFIG" >> $GITHUB_ENV
       - name: Deploy SRS image
         run: |-
+          ls -lh srs.yaml
           kubectl apply -f srs.yaml
