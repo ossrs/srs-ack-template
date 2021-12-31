@@ -23,16 +23,7 @@ jobs:
           access-key-secret: "${{ secrets.ACCESS_KEY_SECRET }}"
           cluster-id: "${{ secrets.ACK_CLUSTER_ID }}"
 
-      # Deploy the SRS image to the ACK cluster
-      #- name: Setup KUBCONFIG for Aliyun ACK
-      #  run: |-
-      #    KUBECONFIG=$RUNNER_TEMP/kubeconfig_$(date +%s)
-      #    echo "${{ secrets.KUBCONFIG }}" > $KUBECONFIG
-      #    echo "KUBECONFIG=$KUBECONFIG" >> $GITHUB_ENV
-
       - name: Deploy SRS image
         run: |-
-          ls -lh srs.yaml
-          #kubectl apply -f srs.yaml
-          ls -lh ${{ env.KUBECONFIG }}
-          kubectl describe deploy/web-deploy
+          kubectl apply -f srs.yaml
+          kubectl describe deploy/srs-deploy
