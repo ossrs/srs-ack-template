@@ -10,7 +10,7 @@ jobs:
   k8s:
     name: release-k8s
     runs-on: ubuntu-20.04
-
+    if: github.event.repository.name != 'srs-ack-template'
     steps:
       - name: Checkout
         uses: actions/checkout@v2
