@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: srs-deployment
+  labels:
+    app: srs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: srs
+  template:
+    metadata:
+      labels:
+        app: srs
+    spec:
+      containers:
+        - name: srs
+          image: ossrs/srs:3
+          ports:
+            - containerPort: 1935
+            - containerPort: 1985
+            - containerPort: 8080
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: srs-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: srs
+  ports:
+    - name: srs-service-1935-1935
+      port: 1935
+      protocol: TCP
+      targetPort: 1935
+    - name: srs-service-1985-1985
+      port: 1985
+      protocol: TCP
+      targetPort: 1985
+    - name: srs-service-8080-8080
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+
