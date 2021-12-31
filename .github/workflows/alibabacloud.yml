@@ -29,5 +29,5 @@ jobs:
           kubectl get deploy
           #kubectl apply -f srs.yaml
           #kubectl get svc/srs-service
-          #EIP=$(kubectl get svc/srs-service |grep srs-service |awk '{print $4}')
-          #echo "http://${EIP}:8080"
+          EIP=$(kubectl get svc/srs-service |grep srs-service |awk '{print $4}')
+          echo "http://${EIP}:8080"
