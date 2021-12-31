@@ -23,7 +23,8 @@ jobs:
           access-key-secret: "${{ secrets.ACCESS_KEY_SECRET }}"
           cluster-id: "${{ secrets.ACK_CLUSTER_ID }}"
 
+      # Deploy SRS image
       - name: Deploy SRS image
         run: |-
           kubectl apply -f srs.yaml
-          kubectl describe deploy/srs-deploy
+          kubectl describe deploy/srs-deployment
