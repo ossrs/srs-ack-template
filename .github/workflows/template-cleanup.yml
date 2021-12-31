@@ -1,4 +1,5 @@
 # This workflow is supposed to be triggered automatically when a new template-based repository has been created.
+# @see https://github.com/JetBrains/intellij-platform-plugin-template/blob/main/.github/workflows/template-cleanup.yml
 
 name: Template Cleanup
 on:
@@ -20,6 +21,7 @@ jobs:
       # Cleanup project
       - name: Cleanup
         run: |
+          NAME="${GITHUB_REPOSITORY##*/}"
           sed -i "s/srs-ack-template/$NAME/g" README.md
 
       # Commit modified files
