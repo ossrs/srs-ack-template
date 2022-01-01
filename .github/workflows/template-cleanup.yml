@@ -20,10 +20,17 @@ jobs:
         uses: actions/checkout@v2.4.0
 
       # Cleanup project
+      #   github.repository   Codertocat/Hello-World
+      #   NAME                Hello-World
       - name: Cleanup
         run: |
+          # Prepare variables.
+          NAME="${GITHUB_REPOSITORY##*/}"
+          TMPL_NAME="srs-ack-template"
+
           # Replace repository name and links.
-          sed -i "s|ossrs/srs-ack-template|${{ github.repository }}|g" README.md
+          sed -i "s|ossrs/$TMPL_NAME|${{ github.repository }}|g" README.md
+          sed -i "s/$TMPL_NAME/$NAME/g" README.md
 
           # Cleanup
           rm -f .github/workflows/template-cleanup.yml
