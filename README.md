@@ -12,7 +12,7 @@ Template repository for deploying SRS to [ACK(Alibaba Cloud Container Service fo
 1. Create a new [RAM user](https://ram.console.aliyun.com/users), with access <kbd>AliyunCSFullAccess</kbd>
 1. Click the <kbd>ACK</kbd> > <kbd>Authorize</kbd> > <kbd>Modify Permissions</kbd> to set user as Administrators.
 
-**Step 2:** Click the <kbd>Use this template</kbd> to create your repository, then set the [secrets](https://github.com/winlinvip/srs-ack-template/settings/secrets/actions):
+**Step 2:** Click the <kbd>Use this template</kbd> to create your repository, then set the [secrets](https://github.com/ossrs/srs-ack-template/settings/secrets/actions):
 
 1. `ACCESS_KEY_ID` is the AccessKey ID of [RAM user](https://ram.console.aliyun.com/users).
 1. `ACCESS_KEY_SECRET` is the AccessKey Secret of [RAM user](https://ram.console.aliyun.com/users).
